@@ -1,8 +1,7 @@
 import { Injectable, NotFoundException } from "@nestjs/common";
-import { v4 as uuidv4 } from "uuid";
 import { CreateEventDto } from "./dto/create-event.dto";
 import { UpdateEventDto } from "./dto/update-event.dto";
-import { Event } from "./event.model";
+import { Event } from "./event.entity";
 
 @Injectable()
 export class EventsService {
@@ -12,7 +11,7 @@ export class EventsService {
     return this.events;
   }
 
-  getEventById(id: string): Event {
+  getEventById(id: number): Event {
     const event = this.events.find((event) => event.id === id);
     if (!event) {
       throw new NotFoundException(`Event with id ${id} not found.`);
@@ -20,7 +19,7 @@ export class EventsService {
     return event;
   }
 
-  removeEvent(id: string): void {
+  removeEvent(id: number): void {
     this.events = this.events.filter((event) => event.id !== id);
   }
 
@@ -33,16 +32,8 @@ export class EventsService {
   }
 
   createEvent(createEventDto: CreateEventDto): Event {
-    const { name, date, userId, place } = createEventDto;
-
-    const event: Event = {
-      id: uuidv4(),
-      name,
-      place,
-      date,
-      userId,
-    };
-    this.events.push(event);
-    return event;
+    const event = createEventDto;
+    event.name = "";
+    return new Event();
   }
 }

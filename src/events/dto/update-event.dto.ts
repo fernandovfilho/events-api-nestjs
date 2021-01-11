@@ -1,5 +1,5 @@
 export class UpdateEventDto {
-  id: string;
+  id: number;
   name: string;
   date: Date;
 }

@@ -1,24 +1,14 @@
-import {
-  Body,
-  Controller,
-  Delete,
-  Get,
-  Param,
-  Patch,
-  Post,
-  UsePipes,
-  ValidationPipe,
-} from "@nestjs/common";
-import { CreateEventDto } from "./dto/create-event.dto";
+import { Controller } from "@nestjs/common";
+/* import { CreateEventDto } from "./dto/create-event.dto";
 import { UpdateEventDto } from "./dto/update-event.dto";
-import { Event } from "./event.model";
+import { Event } from "./event.model"; */
 import { EventsService } from "./events.service";
 
 @Controller("events")
 export class EventsController {
   constructor(private eventsService: EventsService) {}
 
-  @Get()
+  /*  @Get()
   getAllEvents(): Event[] {
     return this.eventsService.getAllEvents();
   }
@@ -46,5 +36,5 @@ export class EventsController {
   @Delete("/:id")
   removeEvent(@Param("id") id: string): void {
     this.eventsService.removeEvent(id);
-  }
+  } */
 }
