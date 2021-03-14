@@ -5,9 +5,8 @@ dotenv.config();
 export const typeOrmConfig: TypeOrmModuleOptions = {
   type: "postgres",
   url:
-    process.env.DATABASE_URL ||
-    "postgres://zxzerjgc:2Q0Tp9-kwc8L4rnrVj1zbX2eoy0zKRmW@tuffi.db.elephantsql.com:5432/zxzerjgc",
+    process.env.DATABASE_URL || "postgres://postgres:1234@localhost:5432/eshop",
   entities: [__dirname + "/../**/*.entity.{js,ts}"],
-  // synchronize: process.env.NODE_ENV === "development" ? true : false,
-  synchronize: false,
+  synchronize: process.env.NODE_ENV === "development" ? true : false,
+  // synchronize: false,
 };
