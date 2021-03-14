@@ -23,6 +23,7 @@ export class UserRepository extends Repository<User> {
     try {
       await user.save();
     } catch (error) {
+      console.log(error);
       if (error.code === "23505") {
         throw new ConflictException("Email already exists");
       } else {

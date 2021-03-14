@@ -1,7 +1,10 @@
+import { User } from "src/auth/user.entity";
 import {
   BaseEntity,
   Column,
   Entity,
+  JoinColumn,
+  OneToOne,
   PrimaryGeneratedColumn,
   Unique,
 } from "typeorm";
@@ -20,4 +23,8 @@ export class Company extends BaseEntity {
 
   @Column()
   cpfCnpj: string;
+
+  @OneToOne(() => User)
+  @JoinColumn()
+  userAdmin: User;
 }
