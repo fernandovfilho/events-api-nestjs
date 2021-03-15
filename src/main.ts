@@ -5,7 +5,7 @@ import * as helmet from "helmet";
 import "reflect-metadata";
 import { AppModule } from "./app.module";
 
-const port = 3000 || process.env.PORT;
+const port = process.env.PORT || 3000;
 
 async function bootstrap() {
   const logger = new Logger("bootstrap");
