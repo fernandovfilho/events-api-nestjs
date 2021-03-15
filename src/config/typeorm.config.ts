@@ -8,5 +8,4 @@ export const typeOrmConfig: TypeOrmModuleOptions = {
     process.env.DATABASE_URL || "postgres://postgres:1234@localhost:5432/eshop",
   entities: [__dirname + "/../**/*.entity.{js,ts}"],
   synchronize: process.env.NODE_ENV === "development" ? true : false,
-  // synchronize: false,
 };

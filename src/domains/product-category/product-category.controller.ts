@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Get,
   Post,
   UseGuards,
   ValidationPipe,
@@ -22,5 +23,11 @@ export class ProductCategoryController {
     @GetCompany() company: Company
   ) {
     return this.productCategoryService.make(createProductCategoryDto, company);
+  }
+
+  @Get("/")
+  @UseGuards(AuthGuard())
+  getAll(@GetCompany() company: Company) {
+    return this.productCategoryService.getAll(company);
   }
 }

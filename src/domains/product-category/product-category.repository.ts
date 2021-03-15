@@ -25,4 +25,12 @@ export class ProductCategoryRepository extends Repository<ProductCategory> {
       throw new InternalServerErrorException();
     }
   }
+
+  async getAll(company: Company): Promise<ProductCategory[]> {
+    const { id } = company;
+    const productCategories = await ProductCategory.find({
+      where: { company: id },
+    });
+    return productCategories;
+  }
 }

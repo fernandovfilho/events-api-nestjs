@@ -17,4 +17,8 @@ export class ProductCategoryService {
       company
     );
   }
+
+  getAll(company: Company) {
+    return this.productCategoryRepository.getAll(company);
+  }
 }
