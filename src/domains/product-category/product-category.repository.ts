@@ -1,5 +1,5 @@
 import { InternalServerErrorException } from "@nestjs/common";
-import { Company } from "src/company/company.entity";
+import { Company } from "src/domains/company/company.entity";
 import { EntityRepository, Repository } from "typeorm";
 import { CreateProductCategoryDto } from "./dto/create-product-category.dto";
 import { ProductCategory } from "./product-category.entity";

@@ -2,8 +2,8 @@ import {
   BadRequestException,
   InternalServerErrorException,
 } from "@nestjs/common";
-import { Company } from "src/company/company.entity";
-import { ProductCategory } from "src/product-category/product-category.entity";
+import { Company } from "src/domains/company/company.entity";
+import { ProductCategory } from "src/domains/product-category/product-category.entity";
 import { EntityRepository, Repository } from "typeorm";
 import { CreateProductDto } from "./dto/create-product.dto";
 import { Product } from "./product.entity";

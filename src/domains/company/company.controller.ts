@@ -6,8 +6,8 @@ import {
   ValidationPipe,
 } from "@nestjs/common";
 import { AuthGuard } from "@nestjs/passport";
-import { GetUser } from "src/auth/get-user.decorator";
-import { User } from "src/auth/user.entity";
+import { GetUser } from "src/domains/auth/get-user.decorator";
+import { User } from "src/domains/auth/user.entity";
 import { CompanyService } from "./company.service";
 import { CreateCompanyDto } from "./dto/create-company.dto";
 

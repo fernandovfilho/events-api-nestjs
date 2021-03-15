@@ -1,6 +1,6 @@
-import { User } from "src/auth/user.entity";
-import { ProductCategory } from "src/product-category/product-category.entity";
-import { Product } from "src/product/product.entity";
+import { User } from "src/domains/auth/user.entity";
+import { ProductCategory } from "src/domains/product-category/product-category.entity";
+import { Product } from "src/domains/product/product.entity";
 import {
   BaseEntity,
   Column,

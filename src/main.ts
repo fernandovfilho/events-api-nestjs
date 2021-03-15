@@ -1,3 +1,4 @@
+import { Logger } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
 import { DocumentBuilder, SwaggerModule } from "@nestjs/swagger";
 import * as helmet from "helmet";
@@ -7,7 +8,10 @@ import { AppModule } from "./app.module";
 const port = 3000 || process.env.PORT;
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule, { cors: true });
+  const logger = new Logger("bootstrap");
+  const app = await NestFactory.create(AppModule, {
+    cors: true,
+  });
   app.use(helmet());
 
   const config = new DocumentBuilder()
@@ -21,7 +25,7 @@ async function bootstrap() {
   SwaggerModule.setup("api", app, document);
 
   await app.listen(port, () => {
-    console.log("Server listen at port: " + port);
+    logger.log("Server listen at port: " + port);
   });
 }
 bootstrap();

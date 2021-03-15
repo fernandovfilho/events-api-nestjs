@@ -6,8 +6,8 @@ import {
   ValidationPipe,
 } from "@nestjs/common";
 import { AuthGuard } from "@nestjs/passport";
-import { Company } from "src/company/company.entity";
-import { GetCompany } from "src/company/get-company.decorator";
+import { Company } from "src/domains/company/company.entity";
+import { GetCompany } from "src/domains/company/get-company.decorator";
 import { CreateProductCategoryDto } from "./dto/create-product-category.dto";
 import { ProductCategoryService } from "./product-category.service";
 
