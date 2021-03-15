@@ -6,6 +6,8 @@ import {
   ValidationPipe,
 } from "@nestjs/common";
 import { AuthGuard } from "@nestjs/passport";
+import { Company } from "src/company/company.entity";
+import { GetCompany } from "src/company/get-company.decorator";
 import { AuthService } from "./auth.service";
 import { AuthCredentialsDto } from "./dto/auth-credentials.dto";
 import { AuthLoginDto } from "./dto/auth-login.dto";
@@ -28,7 +30,8 @@ export class AuthController {
 
   @Post("/test")
   @UseGuards(AuthGuard())
-  test(@GetUser() user: User) {
+  test(@GetUser() user: User, @GetCompany() company: Company) {
     console.log(user);
+    console.log(company);
   }
 }
