@@ -11,7 +11,11 @@ export class ProductService {
     private productRepository: ProductRepository
   ) {}
 
-  make(createProductDto: CreateProductDto, company: Company) {
-    return this.productRepository.make(createProductDto, company);
+  post(createProductDto: CreateProductDto, company: Company) {
+    return this.productRepository.post(createProductDto, company);
+  }
+
+  getAll(company: Company) {
+    return this.productRepository.getAll(company);
   }
 }

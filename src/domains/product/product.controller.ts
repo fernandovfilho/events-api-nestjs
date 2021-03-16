@@ -1,6 +1,7 @@
 import {
   Body,
   Controller,
+  Get,
   Post,
   UseGuards,
   ValidationPipe,
@@ -17,10 +18,16 @@ export class ProductController {
 
   @Post("/")
   @UseGuards(AuthGuard())
-  make(
+  post(
     @Body(ValidationPipe) createProductDto: CreateProductDto,
     @GetCompany() company: Company
   ) {
-    return this.productService.make(createProductDto, company);
+    return this.productService.post(createProductDto, company);
+  }
+
+  @Get("/")
+  @UseGuards(AuthGuard())
+  getAll(@GetCompany() company: Company) {
+    return this.productService.getAll(company);
   }
 }

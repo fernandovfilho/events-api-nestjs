@@ -10,7 +10,7 @@ import { Product } from "./product.entity";
 
 @EntityRepository(Product)
 export class ProductRepository extends Repository<Product> {
-  async make(createProductDto: CreateProductDto, company: Company) {
+  async post(createProductDto: CreateProductDto, company: Company) {
     const { name, price, categoryId } = createProductDto;
 
     try {
@@ -36,5 +36,14 @@ export class ProductRepository extends Repository<Product> {
         throw new InternalServerErrorException();
       }
     }
+  }
+
+  async getAll(company: Company): Promise<Product[]> {
+    const products = await Product.find({
+      where: { company: company.id },
+      order: { name: "ASC" },
+      relations: ["productCategory"],
+    });
+    return products;
   }
 }

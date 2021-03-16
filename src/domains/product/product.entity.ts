@@ -16,7 +16,7 @@ export class Product extends BaseEntity {
   @Column({ nullable: false })
   name: string;
 
-  @Column({ type: "money" })
+  @Column({ type: "float" })
   price: number;
 
   @ManyToOne(() => Company, (company) => company.products)

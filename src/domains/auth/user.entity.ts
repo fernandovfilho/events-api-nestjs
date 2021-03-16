@@ -7,12 +7,6 @@ import {
   Unique,
 } from "typeorm";
 
-export enum UserRole {
-  ADMIN = "admin",
-  USER = "user",
-  GHOST = "ghost",
-}
-
 @Entity()
 @Unique(["email"])
 export class User extends BaseEntity {
@@ -29,9 +23,7 @@ export class User extends BaseEntity {
   password: string;
 
   @Column({
-    type: "enum",
-    enum: UserRole,
-    default: UserRole.ADMIN,
+    default: "ADMIN",
   })
   role: string;
 
