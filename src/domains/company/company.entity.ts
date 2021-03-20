@@ -1,6 +1,3 @@
-import { User } from "src/domains/auth/user.entity";
-import { ProductCategory } from "src/domains/product-category/product-category.entity";
-import { Product } from "src/domains/product/product.entity";
 import {
   BaseEntity,
   Column,
@@ -11,6 +8,9 @@ import {
   PrimaryGeneratedColumn,
   Unique,
 } from "typeorm";
+import { User } from "../auth/user.entity";
+import { ProductCategory } from "../product-category/product-category.entity";
+import { Product } from "../product/product.entity";
 
 @Entity()
 @Unique(["cpfCnpj"])

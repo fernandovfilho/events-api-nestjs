@@ -1,6 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
-import { Company } from "src/domains/company/company.entity";
+import { Company } from "../company/company.entity";
 import { CreateProductCategoryDto } from "./dto/create-product-category.dto";
 import { UpdateProductCategoryDto } from "./dto/update-product-category.dto";
 import { ProductCategoryRepository } from "./product-category.repository";

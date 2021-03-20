@@ -10,8 +10,8 @@ import {
 } from "@nestjs/common";
 import { AuthGuard } from "@nestjs/passport";
 import { ApiTags } from "@nestjs/swagger";
-import { Company } from "src/domains/company/company.entity";
-import { GetCompany } from "src/domains/company/get-company.decorator";
+import { Company } from "../company/company.entity";
+import { GetCompany } from "../company/get-company.decorator";
 import { CreateProductCategoryDto } from "./dto/create-product-category.dto";
 import { UpdateProductCategoryDto } from "./dto/update-product-category.dto";
 import { ProductCategoryService } from "./product-category.service";

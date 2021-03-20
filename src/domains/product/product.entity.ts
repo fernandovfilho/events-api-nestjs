@@ -1,5 +1,3 @@
-import { Company } from "src/domains/company/company.entity";
-import { ProductCategory } from "src/domains/product-category/product-category.entity";
 import {
   BaseEntity,
   Column,
@@ -7,6 +5,8 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from "typeorm";
+import { Company } from "../company/company.entity";
+import { ProductCategory } from "../product-category/product-category.entity";
 
 @Entity()
 export class Product extends BaseEntity {

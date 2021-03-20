@@ -8,8 +8,8 @@ import {
 } from "@nestjs/common";
 import { AuthGuard } from "@nestjs/passport";
 import { ApiTags } from "@nestjs/swagger";
-import { Company } from "src/domains/company/company.entity";
-import { GetCompany } from "src/domains/company/get-company.decorator";
+import { Company } from "../company/company.entity";
+import { GetCompany } from "../company/get-company.decorator";
 import { CreateProductDto } from "./dto/create-product.dto";
 import { ProductService } from "./product.service";
 

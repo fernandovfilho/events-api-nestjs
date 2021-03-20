@@ -9,11 +9,11 @@ import { AuthGuard } from "@nestjs/passport";
 import {
   ApiConflictResponse,
   ApiInternalServerErrorResponse,
-  ApiResponse,
+  ApiOkResponse,
   ApiTags,
 } from "@nestjs/swagger";
-import { Company } from "src/domains/company/company.entity";
-import { GetCompany } from "src/domains/company/get-company.decorator";
+import { Company } from "../company/company.entity";
+import { GetCompany } from "../company/get-company.decorator";
 import { AuthService } from "./auth.service";
 import { AuthCredentialsDto } from "./dto/auth-credentials.dto";
 import { AuthLoginDto } from "./dto/auth-login.dto";
@@ -25,7 +25,7 @@ export class AuthController {
   constructor(private authService: AuthService) {}
 
   @Post("/signup")
-  @ApiResponse({ status: 201, type: User })
+  @ApiOkResponse({ type: User })
   @ApiConflictResponse()
   @ApiInternalServerErrorResponse()
   @ApiTags("auth")

@@ -7,8 +7,8 @@ import {
 } from "@nestjs/common";
 import { AuthGuard } from "@nestjs/passport";
 import { ApiTags } from "@nestjs/swagger";
-import { GetUser } from "src/domains/auth/get-user.decorator";
-import { User } from "src/domains/auth/user.entity";
+import { GetUser } from "../auth/get-user.decorator";
+import { User } from "../auth/user.entity";
 import { CompanyService } from "./company.service";
 import { CreateCompanyDto } from "./dto/create-company.dto";
 

@@ -2,8 +2,8 @@ import {
   InternalServerErrorException,
   NotFoundException,
 } from "@nestjs/common";
-import { Company } from "src/domains/company/company.entity";
 import { EntityRepository, Repository } from "typeorm";
+import { Company } from "../company/company.entity";
 import { CreateProductCategoryDto } from "./dto/create-product-category.dto";
 import { UpdateProductCategoryDto } from "./dto/update-product-category.dto";
 import { ProductCategory } from "./product-category.entity";

@@ -2,8 +2,8 @@ import {
   ConflictException,
   InternalServerErrorException,
 } from "@nestjs/common";
-import { User } from "src/domains/auth/user.entity";
 import { EntityRepository, Repository } from "typeorm";
+import { User } from "../auth/user.entity";
 import { Company } from "./company.entity";
 import { CreateCompanyDto } from "./dto/create-company.dto";
 

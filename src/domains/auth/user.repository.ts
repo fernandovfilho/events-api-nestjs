@@ -4,8 +4,8 @@ import {
   UnauthorizedException,
 } from "@nestjs/common";
 import * as bcrypt from "bcrypt";
-import commonConfig from "src/config/common.config";
 import { EntityRepository, Repository } from "typeorm";
+import commonConfig from "../../config/common.config";
 import { AuthCredentialsDto } from "./dto/auth-credentials.dto";
 import { AuthLoginDto } from "./dto/auth-login.dto";
 import { User } from "./user.entity";
