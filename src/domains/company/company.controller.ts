@@ -6,6 +6,7 @@ import {
   ValidationPipe,
 } from "@nestjs/common";
 import { AuthGuard } from "@nestjs/passport";
+import { ApiTags } from "@nestjs/swagger";
 import { GetUser } from "src/domains/auth/get-user.decorator";
 import { User } from "src/domains/auth/user.entity";
 import { CompanyService } from "./company.service";
@@ -16,6 +17,7 @@ export class CompanyController {
   constructor(private companyService: CompanyService) {}
   @Post("/")
   @UseGuards(AuthGuard())
+  @ApiTags("company")
   make(
     @Body(ValidationPipe) createCompanyDto: CreateCompanyDto,
     @GetUser() user: User

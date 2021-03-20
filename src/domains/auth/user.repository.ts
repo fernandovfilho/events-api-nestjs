@@ -12,7 +12,7 @@ import { User } from "./user.entity";
 
 @EntityRepository(User)
 export class UserRepository extends Repository<User> {
-  async signUp(authCredentialsDto: AuthCredentialsDto): Promise<void> {
+  async signUp(authCredentialsDto: AuthCredentialsDto): Promise<User> {
     const { email, password, name } = authCredentialsDto;
 
     const user = new User();
@@ -22,6 +22,8 @@ export class UserRepository extends Repository<User> {
 
     try {
       await user.save();
+      user.password = undefined;
+      return user;
     } catch (error) {
       console.log(error);
       if (error.code === "23505") {

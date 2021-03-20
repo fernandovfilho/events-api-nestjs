@@ -7,6 +7,7 @@ import {
   ValidationPipe,
 } from "@nestjs/common";
 import { AuthGuard } from "@nestjs/passport";
+import { ApiTags } from "@nestjs/swagger";
 import { Company } from "src/domains/company/company.entity";
 import { GetCompany } from "src/domains/company/get-company.decorator";
 import { CreateProductDto } from "./dto/create-product.dto";
@@ -18,6 +19,7 @@ export class ProductController {
 
   @Post("/")
   @UseGuards(AuthGuard())
+  @ApiTags("product")
   post(
     @Body(ValidationPipe) createProductDto: CreateProductDto,
     @GetCompany() company: Company
@@ -27,6 +29,7 @@ export class ProductController {
 
   @Get("/")
   @UseGuards(AuthGuard())
+  @ApiTags("product")
   getAll(@GetCompany() company: Company) {
     return this.productService.getAll(company);
   }

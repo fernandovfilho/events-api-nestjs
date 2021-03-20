@@ -9,6 +9,7 @@ import {
   ValidationPipe,
 } from "@nestjs/common";
 import { AuthGuard } from "@nestjs/passport";
+import { ApiTags } from "@nestjs/swagger";
 import { Company } from "src/domains/company/company.entity";
 import { GetCompany } from "src/domains/company/get-company.decorator";
 import { CreateProductCategoryDto } from "./dto/create-product-category.dto";
@@ -21,6 +22,7 @@ export class ProductCategoryController {
 
   @Post("/")
   @UseGuards(AuthGuard())
+  @ApiTags("product")
   make(
     @Body(ValidationPipe) createProductCategoryDto: CreateProductCategoryDto,
     @GetCompany() company: Company
@@ -30,12 +32,14 @@ export class ProductCategoryController {
 
   @Get("/")
   @UseGuards(AuthGuard())
+  @ApiTags("product")
   getAll(@GetCompany() company: Company) {
     return this.productCategoryService.getAll(company);
   }
 
   @Get("/:id")
   @UseGuards(AuthGuard())
+  @ApiTags("product")
   getById(
     @GetCompany() company: Company,
     @Param("id") productCategoryId: number
@@ -45,6 +49,7 @@ export class ProductCategoryController {
 
   @Patch("/:id")
   @UseGuards(AuthGuard())
+  @ApiTags("product")
   patch(
     @GetCompany() company: Company,
     @Param("id") productCategoryId: number,
