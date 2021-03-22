@@ -1,3 +1,4 @@
+import { ApiProperty } from "@nestjs/swagger";
 import {
   BaseEntity,
   Column,
@@ -16,15 +17,19 @@ import { Product } from "../product/product.entity";
 @Unique(["cpfCnpj"])
 export class Company extends BaseEntity {
   @PrimaryGeneratedColumn()
+  @ApiProperty()
   id: number;
 
   @Column({ nullable: false })
+  @ApiProperty()
   name: string;
 
   @Column()
+  @ApiProperty()
   phone: string;
 
   @Column({ nullable: false })
+  @ApiProperty()
   cpfCnpj: string;
 
   @OneToOne(() => User)
